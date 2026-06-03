@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js",
-    "dev": "tail -f /dev/null",
+    "start": "node dist/infrastructure/server.js",
+    "dev": "tsx watch src/infrastructure/server.ts",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev"
@@ -32,6 +32,7 @@
     "ts-jest": "^29.1.2",
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.22.4",
     "typescript": "^5.3.3"
   }
 }
