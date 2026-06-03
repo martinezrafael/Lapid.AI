@@ -8,7 +8,7 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "tail -f /dev/null",
-    "test": "jest --runInBand",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev"
   },
@@ -20,6 +20,8 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@swc/core": "^1.15.40",
+    "@swc/jest": "^0.2.39",
     "@types/amqplib": "^0.10.5",
     "@types/express": "^4.17.21",
     "@types/jest": "^29.5.14",
