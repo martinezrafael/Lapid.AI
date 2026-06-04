@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model RefinedNoteModel {
+  id                String   @id @default(uuid())
+  scope             String
+  content           String   @db.Text
+  suggestedFilename String   @map("suggested_filename")
+  createdAt         DateTime @default(now()) @map("created_at")
+
+  @@map("refined_notes")
+}
+
+model MasterCVModel {
+  id          String   @id @default(uuid())
+  fullContent String   @map("full_content") @db.Text
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("master_cvs")
+}
